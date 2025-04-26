@@ -11,26 +11,31 @@
  */
 
 class Pokemon {
-  name: string;
-  type: string;
-  level: number;
-  attacks: string[];
+  // name: string;
+  // type: string;
+  // level: number;
+  // attacks: string[];
 
-  constructor(name: string, type: string, level: number, attacks: string[]) {
-    throw new Error('Method not implemented.');
-  }
+  constructor(
+    public name: string,
+    public type: string,
+    public level: number,
+    public attacks: string[],
+  ) {}
 
   // Método para clonar el Pokémon
   clone(): Pokemon {
     // Los ataques deben de evitar pasarse por referencia, es decir, no deben de ser el mismo arreglo.
     // Completar: Debe devolver un nuevo Pokémon con los mismos atributos
+    // ! debo romper las referencias de cualquier property que se pase por referencia en JS
+    return new Pokemon(this.name, this.type, this.level, [...this.attacks]);
   }
 
   displayInfo(): void {
     console.log(
-      `Nombre: ${this.name}\nTipo: ${this.type}\nNivel: ${
+      `\nNombre: ${this.name}\nTipo: ${this.type}\nNivel: ${
         this.level
-      }\nAtaques: ${this.attacks.join(', ')}`
+      }\nAtaques: ${this.attacks.join(", ")}\n`,
     );
   }
 }
@@ -39,7 +44,14 @@ class Pokemon {
 // 1. Crear un Pokémon base.
 // 2. Clonar el Pokémon base y modificar algunos atributos en los clones.
 // 3. Llamar a displayInfo en cada Pokémon para mostrar sus detalles.
+const basePokemon = new Pokemon("Charmander", "Fire", 1, ["Flare", "Scratch"]);
+const clone1 = basePokemon.clone();
+clone1.name = "Charmeleon";
+clone1.level = 16;
+clone1.attacks.push("FlameThrower"); // fijateq eue si no clono la property esto añade la prop a todos los clones y el arreglo original, pues nunca se rompió la referencia y es el mismo objeto
 
+basePokemon.displayInfo();
+clone1.displayInfo();
 // Ejemplo:
 // const basePokemon = new Pokemon("Charmander", "Fuego", 1, ["Llamarada", "Arañazo"]);
 // const clone1 = basePokemon.clone();

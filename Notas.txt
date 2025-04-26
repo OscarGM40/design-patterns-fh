@@ -1,0 +1,18 @@
+Los patrones de diseño son soluciones comunes y probadas a problemas comunes
+
+Si uso patrones de diseño tendré varias ventajas:
+1- Son soluciones probadas, permiten evitar errores conocidos
+2- Establecen un lenguaje común entre desarrolladores
+3- Resuelven un problema con un código más limpio y efectivo
+
+Patrón Strategy: múltiples métodos para resolver un mismo problema, y se elige dinámicamente según el contexto (recordar problema del cruce, lo dejamos tal cual si hay poco tráfico, pero si hubiera bastante hay que hacer una rotonda y si hubiera muchisimo tráfico hay que crear puentes para las diferentes direcciones, obviamente como cada una es más costosa hay que ver el contexto)
+
+Patrones creacionales: ayudan a crear objetos de manera eficiente y flexible, ocultando los detalles de instanciación (esto es para todos?)
+  Ejemplo: Singleton o Factory Method
+
+Patrones de comportamiento: definen cómo los objetos interactúan y se comunican para cumplir tareas complejas
+  Ejemplo: Observer o Strategy
+
+Patrones estructurales: están enfocados en cómo componer clases u objetos para formar estructuras más grandes y reutilizables
+  Ejemplo: Adapter o Decorator
+
