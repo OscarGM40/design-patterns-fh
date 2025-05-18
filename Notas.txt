@@ -14,5 +14,55 @@ Patrones de comportamiento: definen cómo los objetos interactúan y se comunica
   Ejemplo: Observer o Strategy
 
 Patrones estructurales: están enfocados en cómo componer clases u objetos para formar estructuras más grandes y reutilizables
-  Ejemplo: Adapter o Decorator
+Ejemplo: Adapter o Decorator.La idea  es que estos patrones ayuden a resolver un caso especifico. Recuerda que debe darse un problema concreto para implementar un patrón, siempre hay que ver si hay que aplicarlo
 
+ Una closure es una función que encapsula una serie de variables y definiciones locales que únicamente serán accesibles si son devueltas con el operador return (de esta forma serían variables privadas). ESto se usaba sobre todo antes de la llegada de las clases con ECMA6, para crear entornos privados(ya no tienen mucho sentido)
+
+ const miContador = (function() {
+  let _contador = 0;
+  const increment = () => ++_contador;  
+  const decrement = () => --_contador;  
+  const reset = () => (_contador = 0);
+  const getContador => _contador;
+  
+  return {
+    increment,
+    decrement,
+    reset,
+    getContador
+  }
+ })(); // fijate que la clave es el return con lo que he creado. Es bastante obvio que esto se necesitó para hacer privado todo esto antes de las clases
+
+ Esto es un closure(fijate que las IIFE son todo closures, esto no lo sabía, superinteresante). Fijate que esto no se lo lleva el garbage collector, y por ello consume más RAM.
+ 
+ miContador.getContador(); // dará 0
+ miContador.increment();
+ Entiendo que la otra sintaxis diferente a las IIFE tmb es una closure pero con ésta queda mucho más claro que hacen (dejar un scope privado para lo interno, y que es como una clase o hook). Acuerdate que el garbageCollector no elimina nada durante runtime
+
+// ámbito global
+const e = 10;
+function sum(a){
+  return function(b){
+    return function(c){
+      // ámbito de funciones exteriores
+      return function(d){
+        // ámbito local 
+        return a + b + c + d + e;  // con solo acceder ya es una closure ??
+      }
+    }
+  }
+} 
+
+1. Prioriza el trabajo en equipo: en lugar de ver a mis compañeros como competidores, considera que todos comparten el mismo objetivo: el éxito de la empresa
+2. Comunicación clara y asertiva. debo expresar mis ideas de manera clara y respetuosa, y escuchar activamente a los demás
+3. Flexibilidad y adaptación: sé adaptable a los cambios y dispuesto a aprender nuevas habilidades y conocimientos
+4. Actitud positiva: mantén una actitud positiva y optimista, lo que te ayudará a superar los desafíos y a mantener un buen ambiente de trabajo
+5. Gestión del estrés: identifica la fuentes de estrés en el trabajo y busca estrategias para gestionarlo de manera saludable, como el ejercicio o la meditación (en mi caso me estresa por ejemplo que son muy secos casi todos, solo miran por ellos, es muy dificíl recibir ayuda y aparte algunos están más centrados en su éxito personal que en otra cosa, pero por lo demás no son mala gente)
+6. Desarrollo profesional: busca oportunidades para aprender y crecer profesionalmente, lo que me permitirá destacar en el mercado laboral y mantener mi competitividad
+7. Respeto y tolerancia: debo aceptar las diferencias de opinión y respetar las ideas y trabajos de mis compañeros, incluso si no estoy de acuerdo
+8. No te compares: enfócate en tu propio desempeño y no te compares con los demás(aqui voy servido yo), ya que cada persona tiene sus propias fortalezas y debilidades
+9. Busca el beneficio mutuo: fomenta un ambiente de trabajo en el que todos se beneficien de la colaboración y el trabajo en equipo
+10. Cuida tu reputación: mantén una imagen profesional y cuidad tu presencia online, ya que esto puede influir en tu futuro laboral
+11. Fomenta la cultura de empresa: participa activamente en las actividades de empresa y respeta sus normas y valores
+12. Busca el equilibrio entre trabajo y vida personal: dedica tiempo a tus pasiones y actividades fuera del trabajo para mantener un buen estado mental y físico
+13. Sé proactivo: no esperes que te digan lo que tienes que hacer, sino que toma la iniciativa y busca oportunidades para aportar valor a la empresa
